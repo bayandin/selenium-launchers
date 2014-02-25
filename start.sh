@@ -14,7 +14,7 @@ fi
 # Add machine type to path
 DRIVER_PATH="$DRIVER_PATH/$MACHINE_TYPE"
 
-java -jar bin/selenium-server-standalone-2.39.0.jar\
+java -jar bin/selenium-server-standalone-2.40.0.jar\
  -port 4455\
  -Dwebdriver.chrome.driver="$DRIVER_PATH/chromedriver"\
  -Dwebdriver.chrome.logfile="chromedriver.log"\
