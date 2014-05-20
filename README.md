@@ -1,6 +1,13 @@
-Selenium Launchers
----
-Selenium Server Port: 4455
+# Selenium Launchers
+
+## Strong recommendations
+Use parameter `--depth=1` for speeding up cloning
+```bash
+$ git clone --depth=1 https://github.com/bayandin/selenium-launchers.git
+```
+
+## Configuration
+Selenium Server port: 4455
 
 | App | Version |
 |:-----------|:-------------|
@@ -8,3 +15,5 @@ Selenium Server Port: 4455
 | [Ghost Driver (PhantomJS)](https://bitbucket.org/ariya/phantomjs/downloads/) | 1.1.0 (1.9.7)
 | [Chrome Driver](http://chromedriver.storage.googleapis.com/index.html) | 2.10
 | [IE Driver](http://selenium-release.storage.googleapis.com/index.html) | 2.41.0
+
+PS yep, I know, that storing binaries in Git — it's not a good idea. Stay tuned
