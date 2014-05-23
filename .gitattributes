@@ -1,0 +1,3 @@
+bin/* binary
+*     text=auto
+*.bat eol=crlf
