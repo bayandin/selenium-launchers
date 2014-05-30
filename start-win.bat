@@ -1,4 +1,5 @@
-@echo off set /p VERSION=<selenium_version
+@echo off
+set /p VERSION=<selenium_version
 
 IF %processor_architecture% == AMD64 (
 start java -jar bin\selenium-server-standalone-%VERSION%.jar^
