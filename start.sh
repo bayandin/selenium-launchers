@@ -3,6 +3,7 @@
 MACHINE_OS=`uname`
 MACHINE_TYPE=`uname -m`
 BASEDIR=$(dirname $0)
+VERSION=$(cat ${BASEDIR}/selenium_version)
 
 if [ ${MACHINE_OS} == 'Linux' ]; then
   DRIVER_PATH="bin/linux"
@@ -15,7 +16,7 @@ fi
 # Add machine type to path
 DRIVER_PATH="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE"
 
-java -jar $BASEDIR/bin/selenium-server-standalone-2.42.0.jar\
+java -jar $BASEDIR/bin/selenium-server-standalone-$VERSION.jar\
   -port 4455\
   -Dwebdriver.chrome.driver="$DRIVER_PATH/chromedriver"\
   -Dwebdriver.chrome.logfile="chromedriver.log"\
