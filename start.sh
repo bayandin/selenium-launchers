@@ -10,15 +10,23 @@ if [ ${MACHINE_OS} == 'Linux' ]; then
 elif [ ${MACHINE_OS} == 'Darwin' ]; then
   DRIVER_PATH="bin/mac"
 else
-  echo >&2 "Unknown *unix OS.  Aborting."; exit 1;
+  echo >&2 "Unknown *nix OS. Aborting..."
+  exit 1
 fi
 
-# Add machine type to path
-DRIVER_PATH="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE"
+CHROMEDRIVER="$BASEDIR/$DRIVER_PATH/chromedriver"
+if [[ ! -f $CHROMEDRIVER ]]; then
+    CHROMEDRIVER="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE/chromedriver"
+fi
 
-java -jar $BASEDIR/bin/selenium-server-standalone-$VERSION.jar\
+PHANTOMJS="$BASEDIR/$DRIVER_PATH/phantomjs"
+if [[ ! -f $PHANTOMJS ]]; then
+    PHANTOMJS="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE/phantomjs"
+fi
+
+java -jar $BASEDIR/bin/selenium-server-standalone-$VERSION.jar \
   -port 4455\
-  -Dwebdriver.chrome.driver="$DRIVER_PATH/chromedriver"\
-  -Dwebdriver.chrome.logfile="chromedriver.log"\
-  -Dphantomjs.binary.path="$DRIVER_PATH/phantomjs"\
+  -Dwebdriver.chrome.driver="$CHROMEDRIVER" \
+  -Dwebdriver.chrome.logfile="chromedriver.log" \
+  -Dphantomjs.binary.path="$PHANTOMJS" \
   -Dphantomjs.cli.args="--webdriver-logfile=phantomjs.log"
