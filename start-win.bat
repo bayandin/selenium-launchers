@@ -1,22 +1,29 @@
 @echo off
+
 set CURRENT_DIR=%~dp0
 set /p VERSION=<%CURRENT_DIR%selenium_version
+set ARCH=%processor_architecture%
 
-IF %processor_architecture% == AMD64 (
-start java -jar %CURRENT_DIR%bin\selenium-server-standalone-%VERSION%.jar^
- -port 4455^
- -Dos.name=WINDOWS^
- -Dwebdriver.chrome.driver="%CURRENT_DIR%bin\win\x86_64\chromedriver.exe"^
- -Dwebdriver.chrome.logfile="%CURRENT_DIR%chromedriver.log"^
- -Dwebdriver.ie.driver="%CURRENT_DIR%bin\win\x86_64\IEDriverServer.exe"^
- -Dphantomjs.binary.path="%CURRENT_DIR%bin\win\x86_64\phantomjs.exe"
+set CHROMEDRIVER=%CURRENT_DIR%bin\win\chromedriver.exe
+if not exist "%CHROMEDRIVER%" (
+    set CHROMEDRIVER=%CURRENT_DIR%bin\win\%ARCH%\chromedriver.exe
 )
-IF %processor_architecture% == x86 (
+
+set PHANTOMJS=%CURRENT_DIR%bin\win\phantomjs.exe
+if not exist "%PHANTOMJS%" (
+    set PHANTOMJS=%CURRENT_DIR%bin\win\%ARCH%\phantomjs.exe
+)
+
+set IEDRIVER=%CURRENT_DIR%bin\win\IEDriverServer.exe
+if not exist "%IEDRIVER%" (
+    set IEDRIVER=%CURRENT_DIR%bin\win\%ARCH%\IEDriverServer.exe
+)
+
 start java -jar %CURRENT_DIR%bin\selenium-server-standalone-%VERSION%.jar^
  -port 4455^
  -Dos.name=WINDOWS^
- -Dwebdriver.chrome.driver="%CURRENT_DIR%bin\win\x86\chromedriver.exe"^
+ -Dwebdriver.chrome.driver="%CHROMEDRIVER%"^
  -Dwebdriver.chrome.logfile="%CURRENT_DIR%chromedriver.log"^
- -Dwebdriver.ie.driver="%CURRENT_DIR%bin\win\x86\IEDriverServer.exe"^
- -Dphantomjs.binary.path="%CURRENT_DIR%bin\win\x86\phantomjs.exe"
+ -Dwebdriver.ie.driver="%IEDRIVER%"^
+ -Dphantomjs.binary.path="%PHANTOMJS%"
 )
