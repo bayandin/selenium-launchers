@@ -31,7 +31,7 @@ if [[ ! -f $PHANTOMJS ]]; then
 fi
 
 java $JAVA_SWITCHES -jar $BASEDIR/bin/selenium-server-standalone-$VERSION.jar \
-  -port 4455\
+  -port 4455 \
   -Dwebdriver.chrome.driver="$CHROMEDRIVER" \
   -Dwebdriver.chrome.logfile="chromedriver.log" \
   -Dphantomjs.binary.path="$PHANTOMJS" \
