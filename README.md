@@ -13,7 +13,7 @@ Selenium Server port: 4455
 |:-----------|:-------------|
 | [Selenium Server](http://selenium-release.storage.googleapis.com/index.html) | 2.44.0
 | [Ghost Driver (PhantomJS)](https://bitbucket.org/ariya/phantomjs/downloads/) | 1.1.0 (1.9.8)
-| [Chrome Driver](http://chromedriver.storage.googleapis.com/index.html) | 2.12
+| [Chrome Driver](http://chromedriver.storage.googleapis.com/index.html) | 2.13
 | [IE Driver](http://selenium-release.storage.googleapis.com/index.html) | 2.44.0
 
 PS yep, I know, that storing binaries in Git — it's not a good idea. Stay tuned
