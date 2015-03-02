@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(dirname $0)
-$BASEDIR/start.sh
+BASEDIR=$(dirname "$0")
+"$BASEDIR"/start.sh
