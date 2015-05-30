@@ -19,11 +19,19 @@ if not exist "%IEDRIVER%" (
     set IEDRIVER=%CURRENT_DIR%bin\win\%ARCH%\IEDriverServer.exe
 )
 
+set OPERADRIVER=%CURRENT_DIR%bin\win\operadriver.exe
+if not exist "%OPERADRIVER%" (
+    set OPERADRIVER=%CURRENT_DIR%bin\win\%ARCH%\operadriver.exe
+)
+
 start java -jar %CURRENT_DIR%bin\selenium-server-standalone-%VERSION%.jar^
  -port 4455^
  -Dos.name=WINDOWS^
+ -Dphantomjs.binary.path="%PHANTOMJS%"^
+ -Dphantomjs.cli.args="--webdriver-logfile=%CURRENT_DIR%phantomjs.log"^
  -Dwebdriver.chrome.driver="%CHROMEDRIVER%"^
  -Dwebdriver.chrome.logfile="%CURRENT_DIR%chromedriver.log"^
  -Dwebdriver.ie.driver="%IEDRIVER%"^
- -Dphantomjs.binary.path="%PHANTOMJS%"
+ -Dwebdriver.opera.driver="%OPERADRIVER%"^
+ -Dwebdriver.opera.logfile="%CURRENT_DIR%operadriver.log"
 )

@@ -29,9 +29,16 @@ if [[ ! -f $PHANTOMJS ]]; then
     PHANTOMJS="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE/phantomjs"
 fi
 
+OPERADRIVER="$BASEDIR/$DRIVER_PATH/operadriver"
+if [[ ! -f $OPERADRIVER ]]; then
+    OPERADRIVER="$BASEDIR/$DRIVER_PATH/$MACHINE_TYPE/operadriver"
+fi
+
 java "$JAVA_SWITCHES" -jar "$BASEDIR/bin/selenium-server-standalone-$VERSION".jar \
   -port 4455 \
   -Dphantomjs.binary.path="$PHANTOMJS" \
   -Dphantomjs.cli.args="--webdriver-logfile=phantomjs.log" \
   -Dwebdriver.chrome.driver="$CHROMEDRIVER" \
-  -Dwebdriver.chrome.logfile="chromedriver.log"
+  -Dwebdriver.chrome.logfile="chromedriver.log" \
+  -Dwebdriver.opera.driver="$OPERADRIVER" \
+  -Dwebdriver.opera.logfile="operadriver.log"
