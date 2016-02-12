@@ -11,7 +11,7 @@ Selenium Server port: 4455
 
 | App | Version |
 |:-----------|:-------------|
-| [Selenium Server](http://selenium-release.storage.googleapis.com/index.html) | 2.51.0
+| [Selenium Server](http://selenium-release.storage.googleapis.com/index.html) | 2.52.0
 | [Ghost Driver (PhantomJS)](https://bitbucket.org/ariya/phantomjs/downloads/) | 1.1.0 (1.9.8)
 | [Chrome Driver](http://chromedriver.storage.googleapis.com/index.html) | 2.21
 | [IE Driver](http://selenium-release.storage.googleapis.com/index.html) | 2.51.0
