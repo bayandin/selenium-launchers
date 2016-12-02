@@ -19,11 +19,12 @@ if not exist "%IEDRIVER%" (
     set IEDRIVER=%CURRENT_DIR%bin\win\%ARCH%\IEDriverServer.exe
 )
 
-start java -jar %CURRENT_DIR%bin\selenium-server-standalone-%VERSION%.jar^
- -port 4455^
+start java ^
  -Dos.name=WINDOWS^
  -Dwebdriver.chrome.driver="%CHROMEDRIVER%"^
  -Dwebdriver.chrome.logfile="%CURRENT_DIR%chromedriver.log"^
  -Dwebdriver.ie.driver="%IEDRIVER%"^
- -Dphantomjs.binary.path="%PHANTOMJS%"
+ -Dphantomjs.binary.path="%PHANTOMJS%"^
+ -jar %CURRENT_DIR%bin\selenium-server-standalone-%VERSION%.jar^
+ -port 4455
 )
